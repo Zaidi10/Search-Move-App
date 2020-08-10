@@ -83,10 +83,10 @@ function App(props) {
       <NavbarComponent />
 
       <Switch>
-        <Route path="/favorites" component={() => (<FavouriteComponent Favorites={props.favorites.favorites} handleFav={handleFav} />)} />
-        <Route exact path="/Home" component={RenderMain} />
-        <Route path="/Home/:title" component={({ match }) => (<DetailComponent isLoading={props.detail.isLoading} title={match.params.title} movie={props.detail.movie} fetchDetails={props.fetchDetails} />)} />
-        <Redirect to="/Home" />
+        <Route path="https://github.com/Zaidi10/Movie-Search-App-React/favorites" component={() => (<FavouriteComponent Favorites={props.favorites.favorites} handleFav={handleFav} />)} />
+        <Route exact path="https://github.com/Zaidi10/Movie-Search-App-React/Home" component={RenderMain} />
+        <Route path="https://github.com/Zaidi10/Movie-Search-App-React/Home/:title" component={({ match }) => (<DetailComponent isLoading={props.detail.isLoading} title={match.params.title} movie={props.detail.movie} fetchDetails={props.fetchDetails} />)} />
+        <Redirect to="https://github.com/Zaidi10/Movie-Search-App-React/Home" />
       </Switch>
     </div>
 
