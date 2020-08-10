@@ -138,7 +138,7 @@ export const fetchDetails = (title) => (dispatch) => {
 
 
 
-    fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=1f5816c0&t=${title}`)
+    fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=1f5816c0&t=${title}`)
         .then((success) => (success.json()))
         .then((movies) => {
             console.log("inside fetch");
