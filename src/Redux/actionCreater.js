@@ -17,6 +17,10 @@ export const fetchMovies = (search = null, type = null) => (dispatch) => {
                     dispatch(MoviesFailed(movies.Error));
                     return;
                 }
+                if (movies.Search === undefined) {
+                    dispatch(MoviesFailed("Movie not Found!"));
+                    return;
+                }
                 dispatch(MoviesRecieved(movies));
             })
             .catch((error) => { dispatch(MoviesFailed(error.message)) });
@@ -32,6 +36,10 @@ export const fetchMovies = (search = null, type = null) => (dispatch) => {
                     if (movies.Response === "False") {
 
                         dispatch(MoviesFailed(movies.Error));
+                        return;
+                    }
+                    if (movies.Search === undefined) {
+                        dispatch(MoviesFailed("Movie not Found!"));
                         return;
                     }
 
@@ -52,6 +60,10 @@ export const fetchMovies = (search = null, type = null) => (dispatch) => {
                         dispatch(MoviesFailed(movies.Error));
                         return;
                     }
+                    if (movies.Search === undefined) {
+                        dispatch(MoviesFailed("Movie not Found!"));
+                        return;
+                    }
 
                     dispatch(MoviesRecieved(movies));
                 })
@@ -64,6 +76,10 @@ export const fetchMovies = (search = null, type = null) => (dispatch) => {
                 .then((movies) => {
                     if (movies.Response === "False") {
                         dispatch(MoviesFailed(movies.Error));
+                        return;
+                    }
+                    if (movies.Search === undefined) {
+                        dispatch(MoviesFailed("Movie not Found!"));
                         return;
                     }
 

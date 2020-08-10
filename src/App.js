@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { NotificationContainer, NotificationManager } from 'react-notifications';
 import './App.css';
-import NavbarComponent from "./Components./Navbar";
-import FavouriteComponent from "./Components./FavouriteComponent";
-import { Switch, Route, Redirect, withRouter, BrowserRouter } from 'react-router-dom';
-import MainComponent from "./Components./MainComponent";
-import DetailComponent from "./Components./DetailComponent"
+import NavbarComponent from "./Components/Navbar";
+import FavouriteComponent from "./Components/FavouriteComponent";
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
+import MainComponent from "./Components/MainComponent";
+import DetailComponent from "./Components/DetailComponent"
 import { connect } from "react-redux";
 import { fetchMovies, fetchFavorites, AddFavorites, RemoveFavorites, fetchDetails } from "./Redux/actionCreater"
 
@@ -28,34 +27,12 @@ const mapDispatchtoProps = (dispatch) => ({
 function App(props) {
   let [movie, setMovie] = useState("Title");
 
-  const createNotification = (type) => {
-    console.log("Inside notfication")
-    return () => {
-      switch (type) {
-        case 'info':
-          NotificationManager.info('Info message');
-          break;
-        case 'success':
-          NotificationManager.success('Favorite Added', `string`);
-          break;
-        case 'warning':
-          NotificationManager.warning('Warning message', 'Close after 3000ms', 3000);
-          break;
-        case 'error':
-          NotificationManager.error('Error message', 'Click me!', 5000, () => {
-            alert('callback');
-          });
-          break;
-      }
-    };
-  };
+
 
 
 
   const handleFav = (e, movie, isFav) => {
-    createNotification('success');
     console.log("calling handlefav")
-    e.stopPropagation();
     if (isFav) {
 
       props.RemoveFavorites(movie);
@@ -111,7 +88,6 @@ function App(props) {
         <Route path="/Home/:title" component={({ match }) => (<DetailComponent isLoading={props.detail.isLoading} title={match.params.title} movie={props.detail.movie} fetchDetails={props.fetchDetails} />)} />
         <Redirect to="/Home" />
       </Switch>
-      <NotificationContainer />
     </div>
 
 
