@@ -83,10 +83,10 @@ function App(props) {
         <NavbarComponent />
 
         <Switch>
-          <Route path={process.env.PUBLIC_URL + "/favorites"} component={() => (<FavouriteComponent Favorites={props.favorites.favorites} handleFav={handleFav} />)} />
-          <Route exact path={process.env.PUBLIC_URL + "/Home"} component={RenderMain} />
-          <Route path={process.env.PUBLIC_URL + "/Home/:title"} component={({ match }) => (<DetailComponent isLoading={props.detail.isLoading} title={match.params.title} movie={props.detail.movie} fetchDetails={props.fetchDetails} />)} />
-          <Redirect to={process.env.PUBLIC_URL + "/Home"} />
+          <Route path="/favorites" component={() => (<FavouriteComponent Favorites={props.favorites.favorites} handleFav={handleFav} />)} />
+          <Route exact path="/Home" component={RenderMain} />
+          <Route path="/Home/:title" component={({ match }) => (<DetailComponent isLoading={props.detail.isLoading} title={match.params.title} movie={props.detail.movie} fetchDetails={props.fetchDetails} />)} />
+          <Redirect to="/Home" />
         </Switch>
       </div>
     </HashRouter>

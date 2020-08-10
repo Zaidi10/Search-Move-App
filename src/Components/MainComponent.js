@@ -12,7 +12,7 @@ function CardComp({ movie, handleFav, favId }) {
     return (
 
         <Card className="menu_items">
-            <Link to={`${process.env.PUBLIC_URL}/Home/${movie.Title}`} >
+            <Link to={`/Home/${movie.Title}`} >
                 <CardImg className="item-image" width="254" height="254" src={movie.Poster} alt={movie.Title} />
             </Link>
             <div className="items-details">

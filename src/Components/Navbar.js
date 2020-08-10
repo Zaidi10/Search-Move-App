@@ -13,8 +13,8 @@ export default function NavbarComponent() {
                 <NavbarToggler onClick={toggleNav} />
                 <Collapse isOpen={isNavOpen} navbar>
                     <Nav navbar>
-                        <NavItem className="nav_li_item"><NavLink className="nav-link" to={process.env.PUBLIC_URL + "/Home"}><span className="fa fa-home fa-lg head-icon"></span>Home</NavLink></NavItem>
-                        <NavItem className="nav_li_item"><NavLink className="nav-link" to={process.env.PUBLIC_URL + "/favorites"}><i className="fa fa-heart head-icon" aria-hidden="true"></i>Favorites</NavLink></NavItem>
+                        <NavItem className="nav_li_item"><NavLink className="nav-link" to="/Home"><span className="fa fa-home fa-lg head-icon"></span>Home</NavLink></NavItem>
+                        <NavItem className="nav_li_item"><NavLink className="nav-link" to="/favorites"><i className="fa fa-heart head-icon" aria-hidden="true"></i>Favorites</NavLink></NavItem>
                     </Nav>
                 </Collapse>
             </div>
