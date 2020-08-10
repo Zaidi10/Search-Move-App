@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import NavbarComponent from "./Components/Navbar";
 import FavouriteComponent from "./Components/FavouriteComponent";
-import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
+import { HashRouter, Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import MainComponent from "./Components/MainComponent";
 import DetailComponent from "./Components/DetailComponent"
 import { connect } from "react-redux";
@@ -77,19 +77,19 @@ function App(props) {
 
   return (
 
+    <HashRouter basename='/'>
+      <div className="App">
 
-    <div className="App">
+        <NavbarComponent />
 
-      <NavbarComponent />
-
-      <Switch>
-        <Route path="https://github.com/Zaidi10/Movie-Search-App-React/favorites" component={() => (<FavouriteComponent Favorites={props.favorites.favorites} handleFav={handleFav} />)} />
-        <Route exact path="https://github.com/Zaidi10/Movie-Search-App-React/Home" component={RenderMain} />
-        <Route path="https://github.com/Zaidi10/Movie-Search-App-React/Home/:title" component={({ match }) => (<DetailComponent isLoading={props.detail.isLoading} title={match.params.title} movie={props.detail.movie} fetchDetails={props.fetchDetails} />)} />
-        <Redirect to="https://github.com/Zaidi10/Movie-Search-App-React/Home" />
-      </Switch>
-    </div>
-
+        <Switch>
+          <Route path={process.env.PUBLIC_URL + "/favorites"} component={() => (<FavouriteComponent Favorites={props.favorites.favorites} handleFav={handleFav} />)} />
+          <Route exact path={process.env.PUBLIC_URL + "/Home"} component={RenderMain} />
+          <Route path={process.env.PUBLIC_URL + "/Home/:title"} component={({ match }) => (<DetailComponent isLoading={props.detail.isLoading} title={match.params.title} movie={props.detail.movie} fetchDetails={props.fetchDetails} />)} />
+          <Redirect to={process.env.PUBLIC_URL + "/Home"} />
+        </Switch>
+      </div>
+    </HashRouter>
 
   );
 }
