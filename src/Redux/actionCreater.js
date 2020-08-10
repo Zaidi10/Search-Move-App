@@ -9,7 +9,7 @@ export const fetchMovies = (search = null, type = null) => (dispatch) => {
     if (search === null) {
 
 
-        fetch("http://www.omdbapi.com/?i=tt3896198&apikey=1f5816c0&s=batman")
+        fetch("https://www.omdbapi.com/?i=tt3896198&apikey=1f5816c0&s=batman")
             .then((success) => (success.json()))
             .then((movies) => {
                 if (movies.Response === "False") {
@@ -30,7 +30,7 @@ export const fetchMovies = (search = null, type = null) => (dispatch) => {
 
 
 
-            fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=1f5816c0&s=${search}`)
+            fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=1f5816c0&s=${search}`)
                 .then((success) => (success.json()))
                 .then((movies) => {
                     if (movies.Response === "False") {
@@ -53,7 +53,7 @@ export const fetchMovies = (search = null, type = null) => (dispatch) => {
             let arr = search.split(" ");
 
 
-            fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=1f5816c0&s=${arr[0]}&y=${arr[1]}`)
+            fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=1f5816c0&s=${arr[0]}&y=${arr[1]}`)
                 .then((success) => (success.json()))
                 .then((movies) => {
                     if (movies.Response === "False") {
@@ -71,7 +71,7 @@ export const fetchMovies = (search = null, type = null) => (dispatch) => {
         }
         else {
 
-            fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=1f5816c0&s=${search}&type=${type}`)
+            fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=1f5816c0&s=${search}&type=${type}`)
                 .then((success) => (success.json()))
                 .then((movies) => {
                     if (movies.Response === "False") {
